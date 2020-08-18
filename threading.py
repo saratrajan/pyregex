@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import time
-import os
 import random
 
 def get_current_time():
@@ -17,12 +16,12 @@ def calculate_elapsed_time(start_time, end_time):
 
 
 def do_the_thing():
-    start_time = get_current_time()
-    _seconds = random.randrange(5) 
+    _start_time = get_current_time()
+    _seconds = random.randrange(10) 
     lets_sleep(_seconds)
-    end_time = get_current_time()
-    time_elapsed = calculate_elapsed_time(start_time, end_time)
-    print(f'Finished in {time_elapsed} second(s)...')
+    _end_time = get_current_time()
+    _time_elapsed = calculate_elapsed_time(_start_time, _end_time)
+    print(f'Finished in {_time_elapsed} second(s)...')
 
 def main():
     i = 1
