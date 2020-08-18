@@ -1,0 +1,6 @@
+language: python
+
+image: python:3.7  
+script:
+  - python regexAgesNames.py
+  - python regexFind.py
