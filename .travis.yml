@@ -2,5 +2,7 @@ language: python
 
 image: python:3.7  
 script:
+  - pip install pylint
+  - pylint -j 2 regexAgesNames.py regexFind.py
   - python regexAgesNames.py
   - python regexFind.py
