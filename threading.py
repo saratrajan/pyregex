@@ -1,6 +1,8 @@
 import time
+import os
+import random
 
-def getCurrentTime():
+def get_current_time():
     return time.perf_counter()
 
 def lets_sleep(seconds):
@@ -8,18 +10,21 @@ def lets_sleep(seconds):
     time.sleep(seconds)
     print("Waking up now...")
 
-def calculateElapsedTime(startTime, EndTime):
-    return round(EndTime - startTime , 2)
+def calculate_elapsed_time(start_time, end_time):
+    return round(end_time - start_time, 2)
 
 
 def main():
-    startTime = getCurrentTime()
-    seconds = input("Please input desired seconds to sleep:  ")
-    seconds = int(seconds)
+    start_time = get_current_time()
+    if(os.environ.get('TRAVIS') == True):
+        seconds = random.randrange(25)
+    else:    
+        seconds = input("Please input desired seconds to sleep:  ")
+        seconds = int(seconds)
     lets_sleep(seconds)
-    endTime = getCurrentTime()
-    timeElapsed = calculateElapsedTime(startTime, endTime)
-    print(f'Finished in {timeElapsed} second(s)...')
+    end_time = get_current_time()
+    time_elapsed = calculate_elapsed_time(start_time, end_time)
+    print(f'Finished in {time_elapsed} second(s)...')
 
 if __name__ == "__main__":
     main()
