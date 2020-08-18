@@ -22,13 +22,10 @@ def calculate_elapsed_time(start_time, end_time):
 
 def do_the_thing():
     """ Action is happening here """
-    print("Getting current time")
     _start_time = get_current_time()
-    print("Getting random sleep")
     _seconds = random.randrange(10)
     print("zzzz.....")
     lets_sleep(_seconds)
-    print("Getting current time")
     _end_time = get_current_time()
     _time_elapsed = calculate_elapsed_time(_start_time, _end_time)
     print(f'Finished in {_time_elapsed} second(s)...')
