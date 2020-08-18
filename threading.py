@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import time
 import os
 import random
@@ -14,17 +16,20 @@ def calculate_elapsed_time(start_time, end_time):
     return round(end_time - start_time, 2)
 
 
-def main():
+def do_the_thing():
     start_time = get_current_time()
-    if(os.environ.get('TRAVIS') == True):
-        seconds = random.randrange(25)
-    else:    
-        seconds = input("Please input desired seconds to sleep:  ")
-        seconds = int(seconds)
-    lets_sleep(seconds)
+    _seconds = random.randrange(5) 
+    lets_sleep(_seconds)
     end_time = get_current_time()
     time_elapsed = calculate_elapsed_time(start_time, end_time)
     print(f'Finished in {time_elapsed} second(s)...')
+
+def main():
+    i = 1
+    while i < 4:
+        print(f'Attempt no: {i}')
+        do_the_thing()
+        i += 1
 
 if __name__ == "__main__":
     main()
