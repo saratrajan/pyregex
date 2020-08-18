@@ -34,7 +34,7 @@ print("----------------")
 check = "My naam is Billa"
 regex = re.compile("[n]aam")
 
-replaced = regex.sub("name",check)
+replaced = regex.sub("name", check)
 print(replaced)
 print("----------------")
 
