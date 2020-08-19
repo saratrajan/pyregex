@@ -35,13 +35,13 @@ def main():
     threads = []
     while i < 4:
         print(f'Attempt no: {i}')
-        t = threading.Thread(target=do_the_thing)
-        t.start()
+        thread_instance = threading.Thread(target=do_the_thing)
+        thread_instance.start()
 #        t.join()
         threads.append(t)
         i += 1
     for thread in threads:
-        thread.join()    
+        thread.join()
     end_time = get_current_time()
     _time_elapsed = calculate_elapsed_time(start_time, end_time)
     print(f'Finished in {_time_elapsed} second(s)...')
