@@ -3,7 +3,7 @@ language: python
 image: python:3.7.3
 script:
   - pip install pylint
-  - pylint threading.py
-  - python threading.py
+  - pylint thread_practice.py
+  - python thread_practice.py
   - python regexAgesNames.py
   - python regexFind.py
