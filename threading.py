@@ -2,6 +2,7 @@
 
 import time
 import random
+import threading
 
 
 def get_current_time():
@@ -10,7 +11,7 @@ def get_current_time():
 
 def lets_sleep(seconds):
     """ Sleeping in thread """
-    print(f"Sleeping {seconds} second(s) here...")
+    print(f'Sleeping {seconds} second(s) here...')
     time.sleep(seconds)
     print("Waking up now...")
 
@@ -22,22 +23,28 @@ def calculate_elapsed_time(start_time, end_time):
 
 def do_the_thing():
     """ Action is happening here """
-    _start_time = get_current_time()
-    _seconds = random.randrange(10)
+    _seconds = random.randrange(20)
     print("zzzz.....")
     lets_sleep(_seconds)
-    _end_time = get_current_time()
-    _time_elapsed = calculate_elapsed_time(_start_time, _end_time)
-    print(f'Finished in {_time_elapsed} second(s)...')
 
 
 def main():
     """ I am the main dude """
     i = 1
+    start_time = get_current_time()
+    threads = []
     while i < 4:
         print(f'Attempt no: {i}')
-        do_the_thing()
+        t = threading.Thread(target=do_the_thing)
+        t.start()
+#        t.join()
+        threads.append(t)
         i += 1
+    for thread in threads:
+        thread.join()    
+    end_time = get_current_time()
+    _time_elapsed = calculate_elapsed_time(start_time, end_time)
+    print(f'Finished in {_time_elapsed} second(s)...')
 
 if __name__ == "__main__":
     main()
