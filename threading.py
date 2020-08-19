@@ -38,7 +38,7 @@ def main():
         thread_instance = threading.Thread(target=do_the_thing)
         thread_instance.start()
 #        t.join()
-        threads.append(t)
+        threads.append(thread_instance)
         i += 1
     for thread in threads:
         thread.join()
